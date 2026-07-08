@@ -1,18 +1,40 @@
 ﻿<template>
-  <header class="fixed inset-x-0 top-0 z-50">
-    <div class="container-shell mt-3">
-      <nav class="glass flex items-center justify-between rounded-2xl px-4 py-3 text-sm shadow-lg">
-        <RouterLink to="/" class="text-lg font-bold text-blue-600 dark:text-blue-400">NanoDev</RouterLink>
-        <button class="md:hidden" @click="open = !open" aria-label="Ouvrir le menu">☰</button>
-        <ul class="hidden items-center gap-6 md:flex">
-          <li v-for="item in items" :key="item.to"><RouterLink :to="item.to" class="text-slate-700 hover:text-blue-600 dark:text-slate-200">{{ item.label }}</RouterLink></li>
-        </ul>
-        <button class="rounded-lg border border-slate-300 px-3 py-1 dark:border-slate-700" :aria-label="isDark ? 'Mode clair' : 'Mode sombre'" @click="$emit('toggleTheme')">
-          {{ isDark ? '☀' : '🌙' }}
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <div class="container-shell">
+      <nav class="flex items-center justify-between py-3.5">
+        <RouterLink to="/" class="flex items-center gap-2.5">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">N</span>
+          <span class="text-sm font-semibold tracking-tight text-slate-900">NanoDev</span>
+        </RouterLink>
+
+        <button class="p-2 text-slate-500 md:hidden" @click="open = !open" aria-label="Menu">
+          {{ open ? '✕' : '☰' }}
         </button>
+
+        <ul class="hidden items-center gap-7 md:flex">
+          <li v-for="item in items" :key="item.to">
+            <RouterLink :to="item.to" class="text-sm text-slate-600 transition hover:text-slate-900">
+              {{ item.label }}
+            </RouterLink>
+          </li>
+        </ul>
+
+        <div class="hidden md:block">
+          <RouterLink to="/contact" class="btn-primary !py-2">Devis gratuit</RouterLink>
+        </div>
       </nav>
-      <div v-if="open" class="glass mt-2 rounded-2xl p-4 md:hidden">
-        <RouterLink v-for="item in items" :key="item.to" :to="item.to" class="block py-2 text-slate-700 dark:text-slate-200" @click="open = false">{{ item.label }}</RouterLink>
+
+      <div v-if="open" class="border-t border-slate-100 pb-4 md:hidden">
+        <RouterLink
+          v-for="item in items"
+          :key="item.to"
+          :to="item.to"
+          class="block py-2.5 text-sm text-slate-700"
+          @click="open = false"
+        >
+          {{ item.label }}
+        </RouterLink>
+        <RouterLink to="/contact" class="btn-primary mt-2 w-full" @click="open = false">Devis gratuit</RouterLink>
       </div>
     </div>
   </header>
@@ -21,16 +43,10 @@
 <script setup>
 import { ref } from 'vue'
 
-defineProps({
-  isDark: { type: Boolean, default: false },
-})
-
-defineEmits(['toggleTheme'])
-
 const open = ref(false)
 const items = [
   { to: '/', label: 'Accueil' },
-  { to: '/a-propos', label: 'A propos' },
+  { to: '/a-propos', label: 'À propos' },
   { to: '/services', label: 'Services' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/contact', label: 'Contact' },
