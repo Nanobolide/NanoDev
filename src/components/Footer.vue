@@ -1,28 +1,47 @@
 ﻿<template>
-  <footer class="mt-14 border-t border-slate-200/60 bg-white/70 py-12 dark:border-slate-800 dark:bg-slate-950/80">
-    <div class="container-shell grid gap-8 md:grid-cols-4">
+  <footer class="border-t border-slate-200 bg-white py-12">
+    <div class="container-shell grid gap-8 sm:grid-cols-2 md:grid-cols-4">
       <div>
-        <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">NanoDev</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Construisons le numerique de demain en Centrafrique.</p>
+        <div class="mb-3 flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white">N</span>
+          <span class="text-sm font-semibold text-slate-900">NanoDev</span>
+        </div>
+        <p class="text-sm leading-relaxed text-slate-500">
+          Prestations de services informatiques à Bangui, République Centrafricaine.
+        </p>
       </div>
+
       <div>
-        <p class="mb-2 font-semibold">Navigation</p>
-        <ul class="space-y-1 text-sm text-slate-600 dark:text-slate-300">
-          <li><RouterLink to="/">Accueil</RouterLink></li>
-          <li><RouterLink to="/services">Services</RouterLink></li>
-          <li><RouterLink to="/portfolio">Portfolio</RouterLink></li>
-          <li><RouterLink to="/contact">Contact</RouterLink></li>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Navigation</p>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li><RouterLink to="/" class="hover:text-slate-900">Accueil</RouterLink></li>
+          <li><RouterLink to="/services" class="hover:text-slate-900">Services</RouterLink></li>
+          <li><RouterLink to="/portfolio" class="hover:text-slate-900">Portfolio</RouterLink></li>
+          <li><RouterLink to="/contact" class="hover:text-slate-900">Contact</RouterLink></li>
         </ul>
       </div>
+
       <div>
-        <p class="mb-2 font-semibold">Coordonnees</p>
-        <p class="text-sm text-slate-600 dark:text-slate-300">Bangui, Republique Centrafricaine<br/>+236 70 00 00 00<br/>contact@nanodev.cf</p>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Contact</p>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>Bangui, RCA</li>
+          <li>+236 70 00 00 00</li>
+          <li>contact@nanodev.cf</li>
+        </ul>
       </div>
+
       <div>
-        <p class="mb-2 font-semibold">Reseaux</p>
-        <p class="text-sm text-slate-600 dark:text-slate-300">Facebook<br/>LinkedIn<br/>WhatsApp</p>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Réseaux</p>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li><a href="#" class="hover:text-slate-900">Facebook</a></li>
+          <li><a href="#" class="hover:text-slate-900">LinkedIn</a></li>
+          <li><a href="#" class="hover:text-slate-900">WhatsApp</a></li>
+        </ul>
       </div>
     </div>
-    <p class="container-shell mt-8 text-sm text-slate-500">© NanoDev 2026 - Tous droits reserves.</p>
+
+    <p class="container-shell mt-10 border-t border-slate-100 pt-6 text-center text-xs text-slate-400">
+      © NanoDev 2026 — Tous droits réservés.
+    </p>
   </footer>
 </template>
